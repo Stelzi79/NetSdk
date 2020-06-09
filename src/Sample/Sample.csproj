@@ -1,0 +1,10 @@
+﻿<Project Sdk="Stelzi79.NetSdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp3.0</TargetFramework>
+		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
+		<sd>$(LocalPackageSource)</sd>
+	</PropertyGroup>
+
+</Project>

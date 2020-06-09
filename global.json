@@ -1,5 +1,6 @@
 {
-    "sdk": {
-        "version": "3.0.100-preview"
-    }
+  "msbuild-sdks": {
+    "Stelzi79.NetSdk": "0.1.0",
+    "Microsoft.NET.Sdk": "5.0.100-preview.4.20258.7"
+  }
 }
