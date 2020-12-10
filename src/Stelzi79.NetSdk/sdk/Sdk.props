@@ -1,9 +1,9 @@
-﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0">
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
 
 	<PropertyGroup>
 		<SdkVersion>0.1.0</SdkVersion>
-		<LangVersion>8</LangVersion>
+		<LangVersion>9</LangVersion>
 		<Nullable>enable</Nullable>
 		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
 		<MinVerVerbosity>normal</MinVerVerbosity>

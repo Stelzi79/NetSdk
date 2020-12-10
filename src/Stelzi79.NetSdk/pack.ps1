@@ -1,5 +1,6 @@
 
-nuget pack Package.nuspec -OutputDirectory bin
+.\nuget.exe pack Package.nuspec -OutputDirectory bin
+
 
 $nupkg = (Get-Item("./bin/*.nupkg")).Name
 
@@ -17,6 +18,6 @@ if (Test-Path $cachePath) {
 	Remove-Item $cachePath -Recurse -Force
 }
 
-nuget delete $packageName $version -src LocalPackageSource -NonInteractive
+.\nuget.exe delete $packageName $version -src LocalPackageSource -NonInteractive
 
-nuget add .\bin\$nupkg -src ../../.nupkg -NonInteractive
+.\nuget.exe add .\bin\$nupkg -src ../../.nupkg -NonInteractive
