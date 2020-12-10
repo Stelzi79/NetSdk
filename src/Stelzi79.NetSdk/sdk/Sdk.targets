@@ -2,8 +2,10 @@
 
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets"/>
 
-	<Target Name="MsBuildInfo" AfterTargets="PostBuildEvent">
-		<Message Importance="high" Text="Test Ausgabe: "/>
+
+
+	<Target Name="MsBuildInfo" AfterTargets="restore">
+		<Message Importance="high" Text="Local Packages are resolved from: $(sd)"/>
 	</Target>
 
 
