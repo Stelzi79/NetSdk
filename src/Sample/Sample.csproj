@@ -1,7 +1,4 @@
 ﻿<Project Sdk="Stelzi79.NetSdk/0.3.0">
 
-	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-	</PropertyGroup>
 
 </Project>
