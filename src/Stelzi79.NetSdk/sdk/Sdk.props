@@ -2,14 +2,14 @@
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
 
 	<PropertyGroup>
-		<SdkVersion>0.1.0</SdkVersion>
+		<SdkVersion>0.2.0</SdkVersion>
 		<TargetFramework>net50</TargetFramework>
 		<LangVersion>9</LangVersion>
 		<Nullable>enable</Nullable>
 		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
 		<MinVerVerbosity>normal</MinVerVerbosity>
 		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
-		<CodeAnalysisRuleSet>$(NuGetPackageRoot)/Stelzi79.NetSdk/$(SdkVersion)/sdk/Default.ruleset</CodeAnalysisRuleSet>
+		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
 	</PropertyGroup>
 
 	<ItemGroup>

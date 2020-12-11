@@ -21,3 +21,5 @@ if (Test-Path $cachePath) {
 .\nuget.exe delete $packageName $version -src LocalPackageSource -NonInteractive
 
 .\nuget.exe add .\bin\$nupkg -src ../../.nupkg -NonInteractive
+
+Remove-Item ./bin/ -Recurse -Force
