@@ -2,7 +2,7 @@
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
 
 	<PropertyGroup>
-		<SdkVersion>0.2.0</SdkVersion>
+		<SdkVersion>0.3.0</SdkVersion>
 		<TargetFramework>net50</TargetFramework>
 		<LangVersion>9</LangVersion>
 		<Nullable>enable</Nullable>

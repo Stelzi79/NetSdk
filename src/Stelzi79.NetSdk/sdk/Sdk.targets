@@ -5,7 +5,7 @@
 
 
 	<Target Name="MsBuildInfo" AfterTargets="restore">
-		<Message Importance="high" Text="Local Packages are resolved from the source: $(sd)"/>
+		<Message Importance="high" Text="Local Packages are resolved from the source: $(LocalPackageSource)"/>
 	</Target>
 
 

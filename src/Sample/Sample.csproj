@@ -2,8 +2,6 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
-		<sd>$(LocalPackageSource)</sd>
 	</PropertyGroup>
 
 </Project>
