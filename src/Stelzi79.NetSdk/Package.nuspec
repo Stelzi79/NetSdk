@@ -18,8 +18,5 @@
 	</metadata>	
  	<files>
 		<file src="**" exclude="bin/*;nuget.exe;pack.ps1;*.nuspec"/>
-		<!-- <file src="sdk/*"/> -->
-		<!-- <file src="nuget.exe" exclude="nuget.exe"/> 
-		<file src="Package.nuspec" exclude="Package.nuspec"/> -->
 	</files>
 </package>
