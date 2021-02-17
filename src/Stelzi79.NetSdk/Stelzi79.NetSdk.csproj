@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="MinVer" Sdk="Stelzi79.NetSdk/0.2.1-preview.0.6">
+﻿<Project DefaultTargets="MinVer" Sdk="Stelzi79.NetSdk/0.3.0">
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<Authors>Stelzi79</Authors>
