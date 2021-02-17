@@ -1,0 +1,35 @@
+﻿<Project DefaultTargets="MinVer" Sdk="Stelzi79.NetSdk/0.2.1-preview.0.6">
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Authors>Stelzi79</Authors>
+		<Id>Stelzi79.NetSdk</Id>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/Stelzi79/NetSdk</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Stelzi79/NetSdk</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Description>Some common dependencies packed into an MsBuild SDK dependency.</Description>
+		<Copyright>Copyright 2020</Copyright>
+		<PackageTags>csharp msbuild</PackageTags>
+		<NoBuild>true</NoBuild>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+	</PropertyGroup>
+	<PropertyGroup>
+		<LocalCachePlace>$(USERPROFILE)\.nuget\packages\$(Id)</LocalCachePlace>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="sdk/**" Pack="true" PackagePath="/sdk"/><!-- <Content Include="sdk/**" CopyToOutputDirectory="Always"/> -->
+	</ItemGroup>
+	<Target Name="CustomSdkPackTask" AfterTargets="MinVer">
+		<ItemGroup>
+			<TestPath Include="$(LocalCachePlace)\$(Version)"/>
+			<Nupkg Include="$(OutDir)/*.n"/>
+		</ItemGroup>
+		<Message Importance="high" Text="Packing $(PackageId): $(Version)"/>
+		<CallTarget Targets="Pack"/><!-- $(LocalPackageSource) -->
+		<Message Importance="high" Text="Found in $(LocalPackageSource): @(TestPath)"/>
+		<Exec Command=".\nuget.exe delete $(PackageId) $(Version) -src LocalPackageSource -NonInteractive" IgnoreExitCode="true"/>
+		<Exec Command=".\nuget.exe add $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg -src $(LocalPackageSource) -NonInteractive" IgnoreExitCode="true"/>
+		<RemoveDir Directories="@(TestPath)"/>
+	</Target>
+</Project>

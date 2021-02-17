@@ -1,9 +1,17 @@
 {
-  "$schema": "http://json.schemastore.org/template",
-  "author": "Stelzi79",
-  "classifications": [ "MsBuild", "CustomSDK", "Stelzi79", "dotnet5", "NetSdk" ],
-  "identity": "Stelzi79.NetSdk.DotnetNewTemplate",
-  "name": "Stelzi79 NetSdk",
-	"shortName": "NetSdk"
-	
+	"$schema": "http://json.schemastore.org/template",
+	"author": "Stelzi79",
+	"classifications": [
+		"MsBuild",
+		"CustomSDK",
+		"Stelzi79",
+		"dotnet5",
+		"NetSdk"
+	],
+	"identity": "Stelzi79.NetSdk.DotnetNewTemplate",
+	"name": "Stelzi79 NetSdk",
+	"shortName": "NetSdk",
+	"tags": {
+		"type": "project"
+	}
 }

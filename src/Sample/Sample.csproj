@@ -1,4 +1,20 @@
-﻿<Project Sdk="Stelzi79.NetSdk/0.3.0">
-
-
+﻿<Project Sdk="Stelzi79.NetSdk/0.2.1-preview.0.6">
+	<PropertyGroup>
+		<PackageType>Template</PackageType>
+		<PackageVersion>$(Version)</PackageVersion>
+		<PackageId>AdatumCorporation.Utility.Templates</PackageId>
+		<Title>AdatumCorporation Templates</Title>
+		<Authors>Me</Authors>
+		<Description>Templates to use when creating an application for Adatum Corporation.</Description>
+		<PackageTags>dotnet-new;templates;contoso</PackageTags>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild><!-- <BaseOutputPath>$(SolutionDir)\..\bin\$(MSBuildProjectName)</BaseOutputPath> -->
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="template\**\*" Exclude="template\**\bin\**;template\**\obj\**"/>
+		<Compile Remove="**\*"/>
+	</ItemGroup>
 </Project>

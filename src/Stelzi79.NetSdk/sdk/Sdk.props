@@ -1,17 +1,17 @@
-﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
-
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props"/>
 	<PropertyGroup>
 		<SdkVersion>0.3.0</SdkVersion>
 		<TargetFramework>net50</TargetFramework>
 		<LangVersion>9</LangVersion>
 		<Nullable>enable</Nullable>
 		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
+		<BaseOutputPath>$(SolutionDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
+		<BaseIntermediateOutputPath>$(SolutionDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
 		<MinVerVerbosity>normal</MinVerVerbosity>
 		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
 		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<PackageReference Include="MinVer" Version="2.3.1">
 			<PrivateAssets>all</PrivateAssets>
