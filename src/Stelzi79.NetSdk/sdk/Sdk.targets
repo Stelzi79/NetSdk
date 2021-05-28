@@ -2,10 +2,21 @@
 
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets"/>
 
-
-
 	<Target Name="MsBuildInfo" AfterTargets="restore">
 		<Message Importance="high" Text="Local Packages are resolved from the source: $(LocalPackageSource)"/>
+	</Target>
+
+		<!-- Condition of Checking of Version 1.0.0 is needed because this pack command gets triggered twice! -->
+	<Target Name="CustomSdkPackTask" Condition=" '$(Configuration)' == 'Debug'" AfterTargets="Pack">
+		<ItemGroup>
+			<TestPath Include="$(LocalCachePlace)\$(Version)"/>
+		</ItemGroup>
+		<Message Importance="high" Text="Packing $(PackageId): $(Version)"/>
+		<!-- <CallTarget Condition=" '$(Version)' != '1.0.0' " Targets="Pack"/> -->
+		<Message Importance="high" Text="Found in $(LocalPackageSource): @(TestPath)"/>
+		<Exec Command="..\nuget.exe delete $(PackageId) $(Version) -src LocalPackageSource -NonInteractive" IgnoreExitCode="true"/>
+		<Exec Command="..\nuget.exe add $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg -src $(LocalPackageSource) -NonInteractive" IgnoreExitCode="true"/>
+		<RemoveDir Directories="@(TestPath)"/>
 	</Target>
 
 

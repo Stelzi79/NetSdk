@@ -1,0 +1,25 @@
+﻿<Project>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<PackageType>Template</PackageType>
+		<Authors>Stelzi79</Authors>
+		<Id>Stelzi79.NetSdk.ProjectTemplate</Id>
+		<PackageVersion>$(Version)</PackageVersion>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/Stelzi79/NetSdk</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Stelzi79/NetSdk</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>	
+		<Title>Stelzi79.NetSdk ProjectTemplate</Title>
+		<Description>Default Template for creating a Stelzi79.NetSdk Project</Description>
+		<PackageTags>dotnet-new;templates;stelzi79</PackageTags>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="template\**\*" Exclude="template\**\bin\**;template\**\obj\**"/>
+		<Compile Remove="**\*"/>
+	</ItemGroup>
+</Project>
