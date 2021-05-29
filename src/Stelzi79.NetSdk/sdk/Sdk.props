@@ -1,13 +1,22 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props"/>
+
 	<PropertyGroup>
-		<SdkVersion>0.3.0</SdkVersion>
-		<TargetFramework>net50</TargetFramework>
-		<LangVersion>9</LangVersion>
-		<Nullable>enable</Nullable>
+		<BaseBuildDir>$(SolutionDir)</BaseBuildDir>
+		<BaseBuildDir Condition=" '$(BaseBuildDir)' == '' ">$(ProjectDir)..\</BaseBuildDir>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
 		<BaseOutputPath>$(SolutionDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
 		<BaseIntermediateOutputPath>$(SolutionDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+	</PropertyGroup>
+	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props"/>
+	<PropertyGroup>
+		<SdkVersion>0.3.2-preview.0.2</SdkVersion>
+		<SdkRootPath>$(NuGetPackageRoot)Stelzi79.NetSdk\$(SdkVersion)\sdk\</SdkRootPath>
+		<TargetFramework>net60</TargetFramework>
+		<LangVersion>9</LangVersion>
+		<Nullable>enable</Nullable>
 		<MinVerVerbosity>normal</MinVerVerbosity>
 		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
 		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>

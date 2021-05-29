@@ -3,6 +3,8 @@
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets"/>
 
 	<Target Name="MsBuildInfo" AfterTargets="restore">
+		<Message Importance="high" Text="$SolutionDir: $(SolutionDir)"/>
+		<Message Importance="high" Text="$SdkRootPath: $(SdkRootPath)"/>
 		<Message Importance="high" Text="Local Packages are resolved from the source: $(LocalPackageSource)"/>
 	</Target>
 
