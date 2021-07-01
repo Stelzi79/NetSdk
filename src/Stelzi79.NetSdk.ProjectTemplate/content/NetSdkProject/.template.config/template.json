@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json.schemastore.org/template",
+	"author": "Stelzi79",
+	"classifications": [
+		"MsBuild",
+		"CustomSDK",
+		"Stelzi79",
+		"dotnet5",
+		"NetSdk"
+	],
+	"identity": "Stelzi79.NetSdk.CSProj",
+	"groupIdentity": "Stelzi79.NetSdk",
+	"name": "Stelzi79 NetSdk CSProject",
+	"shortName": "netsdk-csproj",
+	"tags": {
+		"language": "C#",
+		"type": "project"
+	}
+}
