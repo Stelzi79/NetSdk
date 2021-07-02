@@ -5,7 +5,7 @@
 	</Target>
 
 	<!-- Condition of Checking of Version 1.0.0 is needed because this pack command gets triggered twice! -->
-	<Target Name="CustomSdkPackTask" Condition=" '$(Configuration)' == 'Debug'" AfterTargets="Pack">
+	<Target Name="CustomSdkPackTask" Condition=" '$(Configuration)' == 'Debug' and  '$(Version)' != '1.0.0' " AfterTargets="MinVer">
 		<ItemGroup>
 			<TestPath Include="$(LocalCachePlace)\$(Version)"/>
 		</ItemGroup>
@@ -17,15 +17,8 @@
 		<RemoveDir Directories="@(TestPath)"/>
 	</Target>
 
-	<!-- <Target Name="repl" AfterTargets="MinVer" Condition="@(ReplacerFiles->Count()) != 0">
-		<ItemGroup>
-			<ReplacedFiles Include="@(ReplacerFiles->Replace('_pre',''))">
-				<Orig>%(ReplacerFiles.Identity)</Orig>
-			</ReplacedFiles>
-		</ItemGroup>
-	</Target> -->
 
-	<Target Name="Replace" AfterTargets="MinVer" Condition="@(ReplacerFiles->Count()) != 0">
+	<Target Name="Replace" AfterTargets="MinVer" Condition="@(ReplacerFiles->Count()) != 0 and  '$(Version)' != '1.0.0' ">
 		<ItemGroup>
 			<ReplacedFiles Include="@(ReplacerFiles->Replace('_pre',''))">
 				<Orig>%(ReplacerFiles.Identity)</Orig>
@@ -40,18 +33,4 @@
         Encoding="Unicode"/>
   </Target> 
 
-	
-	<Target Name="Replace2">
-	  <PropertyGroup>
-      <In>%(ReplacerFiles.Identity)</In>
-
-      <!-- <Out>$(In.Replace('_pre',''))</Out> -->
-    </PropertyGroup>	
-			<!-- <Message Importance="high" Text="Text $(Lines)" /> -->
-  	<!-- <WriteLinesToFile
-        File="$(Out)"
-				Lines="$([System.IO.File]::ReadAllText(%(ReplacerFiles.Identity)).Replace('0.0.1-replace.me','$(Version)'))"          
-        Overwrite="true"
-        Encoding="Unicode"/> -->
-	</Target>
 </Project>
