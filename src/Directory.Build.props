@@ -13,7 +13,7 @@
 		<NoWarn>$(NoWarn);NU5128;NU5104</NoWarn>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="MinVer" Version="2.3.1"></PackageReference>
+		<PackageReference Include="MinVer" Version="2.5.*"></PackageReference>
 		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-*"></PackageReference>
 		<PackageReference Include="Roslynator.Analyzers" Version="3.0.0"></PackageReference>
 		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.0.0"></PackageReference>
