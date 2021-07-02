@@ -15,5 +15,7 @@
 	"tags": {
 		"language": "C#",
 		"type": "project"
-	}
+	},
+	"sourceName": "ProjectTemplate",
+	"preferNameDirectory": true
 }

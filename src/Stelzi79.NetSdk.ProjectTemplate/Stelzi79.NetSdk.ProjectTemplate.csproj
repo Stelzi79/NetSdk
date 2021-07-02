@@ -22,8 +22,8 @@
 		<!-- <GeneratePackageOnBuild>True</GeneratePackageOnBuild> -->
 	</PropertyGroup>
 	<ItemGroup>
-		<Content Include="**\src\**\*" Exclude="**\src\**\bin\**;**\src\**\obj\**" />
-		<!-- <Content Include="template\**\*" Exclude="template\**\bin\**;template\**\obj\**"/> -->
+		<Content Include="NetSdkProject\**\*" Exclude="NetSdkProject\**\bin\**;NetSdkProject\**\obj\**" />
+		
 		<Compile Remove="**\*"/>
 	</ItemGroup>
 </Project>

@@ -330,4 +330,4 @@ ASALocalRun/
 .mfractor/
 
 # Special ignores unique to this Project/Repo
-src-test/
+template-tests/
