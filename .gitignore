@@ -331,3 +331,4 @@ ASALocalRun/
 
 # Special ignores unique to this Project/Repo
 template-tests/
+.template.config/template.json
