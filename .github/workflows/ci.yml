@@ -27,6 +27,5 @@ jobs:
         working-directory: ./src
       - name: Publish the package to GPR
         run: |
-          ls -alR
-          ls .vs/bin/**/*.nupkg
+          ls -alR .vs/bin/
           dotnet nuget push .vs/bin/Release/*.nupkg
