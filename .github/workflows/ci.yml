@@ -2,7 +2,6 @@ on:
   push:
     branches:
       - develop
-      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,8 +13,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
            dotnet-version: 6.0.100-preview.7.21379.14
-      - name: Build
-        run: dotnet build --configuration Release
-        working-directory: ./src
       - name: Test
         run: dotnet test --configuration Release --no-build
+        working-directory: ./src
+      - name: Build
+        run: dotnet pack --configuration Release
+        working-directory: ./src
