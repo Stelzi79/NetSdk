@@ -11,7 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: CD into source
-        run: cd src & ls
+        run: cd src
+      - name: asfd
+        run: ls
       - name: Build
         run: dotnet build --configuration Release
       - name: Test
