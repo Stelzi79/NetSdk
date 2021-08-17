@@ -11,10 +11,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: CD into source
-        run: cd src
-      - name: asfd
-        run: ls
+        run: |
+          cd ./src
+          ls
       - name: Build
         run: dotnet build --configuration Release
+        working-directory: ./src
       - name: Test
         run: dotnet test --configuration Release --no-build
