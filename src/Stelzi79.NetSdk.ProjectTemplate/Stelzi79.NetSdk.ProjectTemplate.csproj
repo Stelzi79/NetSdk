@@ -22,12 +22,7 @@
 		<!-- <GeneratePackageOnBuild>True</GeneratePackageOnBuild> -->
 	</PropertyGroup>
 	<ItemGroup>
-		<Content Include="NetSdkProject\**\*" Exclude="NetSdkProject\**\bin\**;NetSdkProject\**\obj\**;NetSdkProject\**\*_pre*" />		
+		<Content Include="NetSdkProject\**\*" Exclude="**\bin\**;**\obj\**;**\*_pre*" />		
 		<Compile Remove="**\*"/>
 	</ItemGroup>
-
-  <ItemGroup>
-    <ReplacerFiles Include="**\*_pre*" />
-  </ItemGroup>
-
 </Project>

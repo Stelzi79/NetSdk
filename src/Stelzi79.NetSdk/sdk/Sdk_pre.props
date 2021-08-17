@@ -6,16 +6,17 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
-		<BaseOutputPath>$(SolutionDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
-		<BaseIntermediateOutputPath>$(SolutionDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+		<LocalPackageSource>$(BaseBuildDir)..\.nupkg</LocalPackageSource>
+		<BaseOutputPath>$(BaseBuildDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
+		<BaseIntermediateOutputPath>$(BaseBuildDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
 	</PropertyGroup>
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props"/>
 	<PropertyGroup>
-		<SdkVersion>0.3.2-preview.0.2</SdkVersion>
+		<SdkVersion>0.0.1-replace.me</SdkVersion>
 		<SdkRootPath>$(NuGetPackageRoot)Stelzi79.NetSdk\$(SdkVersion)\sdk\</SdkRootPath>
+		<TaskLogLevel>none</TaskLogLevel>
 		<TargetFramework>net60</TargetFramework>
-		<LangVersion>9</LangVersion>
+		<LangVersion>10</LangVersion>
 		<Nullable>enable</Nullable>
 		<MinVerVerbosity>normal</MinVerVerbosity>
 		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
@@ -43,4 +44,9 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
+	
+	<ItemGroup>
+    <ReplacerFiles Include="**\*_pre*" />
+  </ItemGroup>
+
 </Project>

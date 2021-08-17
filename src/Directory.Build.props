@@ -1,12 +1,13 @@
 ﻿<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<SdkVersion>0.3.0</SdkVersion>
-		<TargetFramework>net50</TargetFramework>
-		<LangVersion>9</LangVersion>
+		<TargetFramework>net60</TargetFramework>
+		<LangVersion>10</LangVersion>
 		<Nullable>enable</Nullable>
 		<LocalPackageSource>$(SolutionDir)..\.nupkg</LocalPackageSource>
 		<BaseOutputPath>$(SolutionDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
 		<BaseIntermediateOutputPath>$(SolutionDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+		<TaskLogLevel>none</TaskLogLevel>
 		<MinVerVerbosity>normal</MinVerVerbosity>
 		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
 		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
@@ -19,4 +20,8 @@
 		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.1.1"></PackageReference>
 		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.2.2"></PackageReference>
 	</ItemGroup>
+
+	<ItemGroup>
+    <ReplacerFiles Include="**\*_pre*" />
+  </ItemGroup>
 </Project>

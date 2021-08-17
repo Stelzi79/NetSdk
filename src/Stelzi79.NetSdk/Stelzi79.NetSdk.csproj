@@ -19,6 +19,6 @@
 		<LocalCachePlace>$(USERPROFILE)\.nuget\packages\$(Id)</LocalCachePlace>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Include="sdk/**" Pack="true" PackagePath="/sdk"/><!-- <Content Include="sdk/**" CopyToOutputDirectory="Always"/> -->
+		<None Include="sdk\**" Pack="true" PackagePath=" \sdk" Exclude="**\*_pre*"/><!-- <Content Include="sdk/**" CopyToOutputDirectory="Always"/> -->
 	</ItemGroup>
 </Project>

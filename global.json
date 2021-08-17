@@ -1,5 +1,5 @@
 {
-  "msbuild-sdks": {
-    "Microsoft.NET.Sdk": "5.0.100*"
-  }
+	"msbuild-sdks": {
+		"Microsoft.NET.Sdk": "6.0.100-*"
+	}
 }
