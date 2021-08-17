@@ -18,11 +18,12 @@
 		<IncludeContentInPack>true</IncludeContentInPack>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<ContentTargetFolders>content</ContentTargetFolders>
+		<NoDefaultExcludes>true</NoDefaultExcludes>
 
 		<!-- <GeneratePackageOnBuild>True</GeneratePackageOnBuild> -->
 	</PropertyGroup>
 	<ItemGroup>
-		<Content Include="NetSdkProject\**\*" Exclude="**\bin\**;**\obj\**;**\*_pre*" />		
+		<Content Include="NetSdkProject\**\*;NetSdkRepoStructure\**\*" Exclude="**\bin\**;**\obj\**;**\*_pre*" />		
 		<Compile Remove="**\*"/>
 	</ItemGroup>
 </Project>
