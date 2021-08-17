@@ -22,23 +22,23 @@
 		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="MinVer" Version="2.3.1">
+		<PackageReference Include="MinVer" Version="2.5.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-*">
+		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Roslynator.Analyzers" Version="3.0.0">
+		<PackageReference Include="Roslynator.Analyzers" Version="3.2.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.0.0">
+		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.0.0">
+		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.2.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
