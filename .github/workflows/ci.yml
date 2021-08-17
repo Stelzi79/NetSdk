@@ -42,4 +42,4 @@ jobs:
           files: |
             .vs/bin/Stelzi79.NetSdk.ProjectTemplate/Release/Stelzi79.NetSdk.ProjectTemplate*.nupkg
             .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk*.nupkg
-          prerelease: true
+          prerelease: false
