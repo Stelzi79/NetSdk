@@ -25,6 +25,7 @@ jobs:
         working-directory: ./src
       - name: Pack
         run: |
+          dotnet msbuild -t:Replace -t:MinVer
           dotnet pack --configuration Release
         working-directory: ./src
       - name: Publish the package to GPR
