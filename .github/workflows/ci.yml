@@ -28,4 +28,5 @@ jobs:
       - name: Publish the package to GPR
         run: |
           ls  .vs/bin/**/Release/*.nupkg
+          dotnet nuget add source --username Stelzi79 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Stelzi79/index.json"
           dotnet nuget push .vs/bin/**/Release/*.nupkg
