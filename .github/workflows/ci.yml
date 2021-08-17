@@ -30,3 +30,7 @@ jobs:
           ls  .vs/bin/**/Release/*.nupkg
           dotnet nuget add source --username Stelzi79 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Stelzi79/index.json"
           dotnet nuget push .vs/bin/**/Release/*.nupkg -s github
+      - name: Publish the package to nuget.org
+        run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
