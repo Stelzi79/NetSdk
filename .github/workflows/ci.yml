@@ -9,18 +9,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: check git tags
-        run: |
-          git fetch
-          git fetch --tags
-          git tag
+      - name: checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
            dotnet-version: 6.0.100-preview.7.21379.14
+      - name: run minver
+        id: version
+        uses: thefringeninja/action-minver@2.0.0-preview1
+      - name: output
+        run: |
+          echo ${{ steps.version.outputs.version }}
       - name: Test
         run: |
-          git tag
           dotnet test --configuration Release --no-build
         working-directory: ./src
       - name: Build
