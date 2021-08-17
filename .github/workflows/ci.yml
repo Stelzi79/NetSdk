@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: CD into source
-        run: |
-          cd ./src
-          ls
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+           dotnet-version: 6.0.100-*
       - name: Build
         run: dotnet build --configuration Release
         working-directory: ./src
