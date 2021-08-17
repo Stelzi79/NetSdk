@@ -40,3 +40,4 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: .vs/bin/**/Release/*.nupkg
+          prerelease: true
