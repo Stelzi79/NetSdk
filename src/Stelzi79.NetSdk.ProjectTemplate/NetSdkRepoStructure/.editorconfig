@@ -4,11 +4,17 @@
 # All files
 [*]
 indent_style         = tab
-insert_final_newline = false
+insert_final_newline =true
 charset              = utf-8-bom
+
 
 # Code files
 [*.{cs,csx,vb,vbx}]
+
+dotnet_diagnostic.RCS1110.severity=warning
+csharp_style_var_for_built_in_types=false:suggestion
+csharp_style_var_when_type_is_apparent=false:suggestion
+csharp_style_var_elsewhere=false:suggestion
 
 #Core editorconfig formatting - indentation
 
@@ -223,3 +229,10 @@ dotnet_diagnostic.SA1606.severity = silent
 dotnet_diagnostic.SA1614.severity = none
 dotnet_diagnostic.SA1400.severity = suggestion
 dotnet_diagnostic.SA1027.severity = silent
+dotnet_diagnostic.CA1050.severity = warning
+
+# SA1502: Element should not be on a single line
+dotnet_diagnostic.SA1502.severity = silent
+
+# IDE0046: Convert to conditional expression
+dotnet_diagnostic.IDE0046.severity = none
