@@ -1,4 +1,4 @@
-﻿<Project Sdk="Stelzi79.NetSdk/0.3.2-preview.0.2">
+﻿<Project Sdk="Stelzi79.NetSdk">
 	<PropertyGroup>
 		<PackageVersion>$(Version)</PackageVersion>
 	</PropertyGroup>
