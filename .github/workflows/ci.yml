@@ -43,13 +43,7 @@ jobs:
       - uses: benjlevesque/short-sha@v1.2
         id: short-sha
         with:
-          length: 6
-      - run: echo $SHA
-        env: 
-          SHA: ${{ steps.short-sha.outputs.sha }}
-      - run: echo $SHA
-        env: 
-          SHA: ${{ env.SHA }}
+          length: 7
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
@@ -76,11 +70,14 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         with:
-          tag_name: ${{ github.ref_type }}-${{ github.ref_name }}-${{ steps.short-sha.outputs.sha }}-${{ github.run_id }}
-          body: Text
+          tag_name: ${{ github.ref_type }}-${{ github.ref_name }} ${{ steps.short-sha.outputs.sha }}-${{ github.run_id }}
+          body: |
+            ${{ github.event.commits[0}.message }}
+            ${{ toJSON(github.event.commits) }}            
           files: |
             .vs/bin/Stelzi79.NetSdk.ProjectTemplate/Release/Stelzi79.NetSdk.ProjectTemplate*.nupkg
             .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk*.nupkg
+            .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk.*.nupkg
           prerelease: true
       - name: Publish the package to GPR
         run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/Stelzi79/index.json
