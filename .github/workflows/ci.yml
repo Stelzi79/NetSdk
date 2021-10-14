@@ -37,7 +37,8 @@ jobs:
           # Optional. Specifies the log level.
           verbosity: info
       - name: outputVersion
-        run: echo Version from Minver => ${{ steps.version.outputs.version }}
+        run: |
+          echo Version from MinVer ${{ steps.version.outputs.version }}
       - name: Test
         run: |
           dotnet test --configuration Release --no-build
