@@ -30,8 +30,10 @@ jobs:
           dotnet restore
           dotnet msbuild -t:Replace -t:MinVer    
           dotnet pack --configuration Release
-          echo $env
+          echo $test
         working-directory: ./src
+        env:
+          test: ${{ toJSON(env) }}
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
