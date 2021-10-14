@@ -40,7 +40,7 @@ jobs:
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         with:
           tag_name: ${{ github.sha }}-${{ github.run_id }}
-          body: ${{ github }}
+          body: Test Test
           files: |
             .vs/bin/Stelzi79.NetSdk.ProjectTemplate/Release/Stelzi79.NetSdk.ProjectTemplate*.nupkg
             .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk*.nupkg
