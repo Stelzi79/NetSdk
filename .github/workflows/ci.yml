@@ -16,7 +16,7 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 6.0.100-preview.7.21379.14
+          dotnet-version: 6.0.100-rc.2.21505.57
       - name: Test
         run: |
           dotnet test --configuration Release --no-build
@@ -35,11 +35,20 @@ jobs:
             .vs/bin/Stelzi79.NetSdk.ProjectTemplate/Release/Stelzi79.NetSdk.ProjectTemplate*.nupkg
             .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk*.nupkg
           prerelease: false
+      - name: PreRelease
+        uses: softprops/action-gh-release@v1
+        if: ! startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            .vs/bin/Stelzi79.NetSdk.ProjectTemplate/Release/Stelzi79.NetSdk.ProjectTemplate*.nupkg
+            .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk*.nupkg
+          prerelease: true
       - name: Publish the package to GPR
         run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/Stelzi79/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Publish the package to nuget.org
         run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+        if: startsWith(github.ref, 'refs/tags/')
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
