@@ -35,7 +35,7 @@ jobs:
           # Optional. Specifies the prefix of the tags
           #tag-prefix: v
           # Optional. Specifies the log level.
-          verbosity: normal
+          verbosity: info
       - name: outputVersion
         run: |
           echo Version from Minver => ${{ steps.version.outputs.version }}
