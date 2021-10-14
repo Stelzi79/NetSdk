@@ -1,6 +1,6 @@
 ﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets"/>
+	<Import Sdk="Microsoft.NET.Sdk.Worker" Project="Sdk.targets"/>
 
 	<Target Name="MsBuildInfo" AfterTargets="restore">
 		<Message Importance="high" Text="$SolutionDir: $(SolutionDir)"/>
