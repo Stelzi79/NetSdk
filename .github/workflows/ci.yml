@@ -77,7 +77,10 @@ jobs:
           files: |
             .vs/bin/Stelzi79.NetSdk.ProjectTemplate/Release/Stelzi79.NetSdk.ProjectTemplate*.nupkg
             .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk*.nupkg
-            .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk.*.nupkg
+            .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk.BlazorWebAssembly*.nupkg
+            .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk.Razor*.nupkg
+            .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk.Web*.nupkg
+            .vs/bin/Stelzi79.NetSdk/Release/Stelzi79.NetSdk.Worker*.nupkg
           prerelease: true
       - name: Publish the package to GPR
         run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/Stelzi79/index.json
