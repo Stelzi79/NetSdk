@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<Authors>Stelzi79</Authors>
-		<Id>Stelzi79.NetSdk</Id>
+		<Id>Stelzi79.NetSdk.BlazorWebAssembly</Id>
 		<PackageVersion>$(Version)</PackageVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

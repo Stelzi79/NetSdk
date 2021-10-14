@@ -11,11 +11,11 @@
 		<BaseIntermediateOutputPath>$(BaseBuildDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
 	</PropertyGroup>
 
-	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props"/>
+	<Import Sdk="Microsoft.NET.Sdk.BlazorWebAssembly" Project="Sdk.props"/>
 
 	<PropertyGroup>
 		<SdkVersion>0.0.1-replace.me</SdkVersion>
-		<SdkRootPath>$(NuGetPackageRoot)Stelzi79.NetSdk\$(SdkVersion)\sdk\</SdkRootPath>
+		<SdkRootPath>$(NuGetPackageRoot)Stelzi79.NetSdk.BlazorWebAssembly\$(SdkVersion)\sdk\</SdkRootPath>
 		<TaskLogLevel>none</TaskLogLevel>
 		<TargetFramework>net60</TargetFramework>
 		<LangVersion>10</LangVersion>
