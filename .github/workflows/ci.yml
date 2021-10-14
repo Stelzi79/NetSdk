@@ -72,7 +72,7 @@ jobs:
         with:
           tag_name: ${{ github.ref_type }}-${{ github.ref_name }} ${{ steps.short-sha.outputs.sha }}-${{ github.run_id }}
           body: |
-            ${{ github.event.commits[0}.message }}
+            ${{ github.event.commits[0].message }}
             ${{ toJSON(github.event.commits) }}            
           files: |
             .vs/bin/Stelzi79.NetSdk.ProjectTemplate/Release/Stelzi79.NetSdk.ProjectTemplate*.nupkg
