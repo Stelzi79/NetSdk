@@ -70,7 +70,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         with:
-          tag_name: ${{ github.ref_type }}-${{ github.ref_name }} ${{ steps.short-sha.outputs.sha }}-${{ github.run_id }}
+          tag_name: ${{ github.ref_type }}-${{ github.ref_name }}-${{ steps.short-sha.outputs.sha }}-${{ github.run_id }}
           body: |
             ${{ github.event.commits[0].message }}
             ${{ toJSON(github.event.commits) }}            
