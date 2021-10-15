@@ -68,11 +68,11 @@ jobs:
            .vs/bin/Stelzi79.NetSdk**/Release/**.nupkg
           prerelease: true
       - name: Publish the package to GPR
-        run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/Stelzi79/index.json
+        run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/Stelzi79/index.json --skip-duplicate
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Publish the package to nuget.org
-        run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate
         if: startsWith(github.ref, 'refs/tags/')
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
