@@ -14,8 +14,8 @@
 
 		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="=== Custom Package Processing Started" />
 		<ConvertToAbsolutePath Paths="$(LocalPackageSource)">
-      <Output TaskParameter="AbsolutePaths" PropertyName="LocalPackageSourceAbs"/>
-    </ConvertToAbsolutePath>
+			<Output TaskParameter="AbsolutePaths" PropertyName="LocalPackageSourceAbs"/>
+		</ConvertToAbsolutePath>
 		<ItemGroup>
 			<TestPath Include="$(LocalCachePlace)\$(Version)"/>
 			<ToDeletePackage Include="$(LocalPackageSource)\$(PackageId)\$(PackageVersion)" />
@@ -39,10 +39,10 @@
 		</ItemGroup>
 		<Message Importance="high" Text="Files to replace Version: %(ReplacedFiles.Orig) => %(ReplacedFiles.Identity)" />
 		<WriteLinesToFile
-        File="%(ReplacedFiles.Identity)"
-				Lines="$([System.IO.File]::ReadAllText(%(ReplacedFiles.Orig)).Replace('0.0.1-replace.me','%(ReplacedFiles.Ver)'))"          
-        Overwrite="true"
-        Encoding="Unicode"/>
-  </Target> 
+				File="%(ReplacedFiles.Identity)"
+				Lines="$([System.IO.File]::ReadAllText(%(ReplacedFiles.Orig)).Replace('0.0.1-replace.me','%(ReplacedFiles.Ver)'))"
+				Overwrite="true"
+				Encoding="Unicode"/>
+	</Target>
 
 </Project>

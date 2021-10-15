@@ -10,6 +10,8 @@
 		<TaskLogLevel>none</TaskLogLevel>
 		<MinVerVerbosity>normal</MinVerVerbosity>
 		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
+		<MinVerAutoIncrement>minor</MinVerAutoIncrement>
+
 		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
 		<NoWarn>$(NoWarn);NU5128;NU5104</NoWarn>
 	</PropertyGroup>
@@ -22,6 +24,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <ReplacerFiles Include="**\*_pre*" />
-  </ItemGroup>
+		<ReplacerFiles Include="**\*_pre*" />
+	</ItemGroup>
 </Project>
