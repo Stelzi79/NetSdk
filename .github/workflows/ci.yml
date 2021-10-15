@@ -23,19 +23,10 @@ jobs:
           dotnet-version: 6.0.100-rc.2.21505.57
       - name: run minver
         id: version
-        uses: thefringeninja/action-minver@2.0.0-preview1
+        uses: stelzi79/action-minver@3.0.0
         with:
-          # Optional. Specifies which part of the version to auto-increment.
           auto-increment: minor
-          # Optional. Sets custom build metadata for your semantic version.
-          #build-metadata: ${{ github.sha }}
-          # Optional. Specifies the default pre-release phase.
           default-pre-release-phase: preview
-          # Optional. Specifies the minimum version to use when no tags exist.
-          #minimum-major-minor: 2.0.0
-          # Optional. Specifies the prefix of the tags
-          #tag-prefix: v
-          # Optional. Specifies the log level.
           verbosity: info
       - name: output
         run: |
