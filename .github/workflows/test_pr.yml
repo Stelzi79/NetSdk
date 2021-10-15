@@ -1,0 +1,58 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test PRs
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches: [develop]
+    types: [synchronize, opened, reopened, ready_for_review]
+  
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: benjlevesque/short-sha@v1.2
+        id: short-sha
+        with:
+          length: 7
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.100-rc.2.21505.57
+      - name: run minver
+        id: version
+        uses: stelzi79/action-minver@3.0.0
+        with:
+          auto-increment: minor
+          default-pre-release-phase: preview
+          verbosity: info
+      - name: Test
+        run: |
+          dotnet test --configuration Release --no-build
+        working-directory: ./src
+        env:
+          MinVerVersionOverride: ${{ steps.version.outputs.version }}-${{ github.run_id}}-${{ github.run_number}}-${{ github.run_attempt}}
+      - name: Pack
+        run: |
+          dotnet restore
+          dotnet msbuild -t:Replace -t:MinVer    
+          dotnet pack --configuration Release
+        working-directory: ./src
+        env:
+          MinVerVersionOverride: ${{ steps.version.outputs.version }}-${{ github.run_id}}-${{ github.run_number}}-${{ github.run_attempt}}
+      - name: Publish the package to GPR
+        run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/Stelzi79/index.json --skip-duplicate
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
