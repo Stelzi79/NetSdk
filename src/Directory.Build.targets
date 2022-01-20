@@ -1,48 +1,7 @@
 ﻿<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-	<Target Name="MsBuildInfo" AfterTargets="restore">
-		<Message Importance="high" Text="Local Packages are resolved from the source: $(LocalPackageSource)"/>
-	</Target>
-
-	<!-- <Target Name="PreCustomPackTask" BeforeTargets="CustomSdkPackTask, Build, Pack">
-		<Message Importance="high" Text="Cleaning Task ..."/>
-		<CallTarget Targets="clean"/>
-	</Target> -->
-
-	<!-- Condition of Checking of Version 1.0.0 is needed because this pack command gets triggered twice! -->
-	<Target Name="CustomSdkPackTask" Condition=" '$(Configuration)' == 'Debug' and  '$(Version)' != '1.0.0' and Exists('$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg') " AfterTargets="Pack">
-
-		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="=== Custom Package Processing Started" />
-		<ConvertToAbsolutePath Paths="$(LocalPackageSource)">
-			<Output TaskParameter="AbsolutePaths" PropertyName="LocalPackageSourceAbs"/>
-		</ConvertToAbsolutePath>
-		<ItemGroup>
-			<TestPath Include="$(LocalCachePlace)\$(Version)"/>
-			<ToDeletePackage Include="$(LocalPackageSource)\$(PackageId)\$(PackageVersion)" />
-		</ItemGroup>
-
-		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="Processing the Package: $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg"/>
-		<Message Condition="'$(TaskLogLevel)' != 'none'"  Importance="high" Text="==== 1) deleting (@(ToDeletePackage))..." />
-		<Exec Condition="Exists('@(ToDeletePackage)')" Command="dotnet nuget delete $(PackageId) $(Version) -s LocalPackageSource --non-interactive" IgnoreExitCode="true"/>
-		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="==== 2) adding to LocalPackageSource ..." />
-		<Exec Command="dotnet nuget push $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg -s $(LocalPackageSourceAbs) --no-service-endpoint" IgnoreExitCode="true"/>
-		<RemoveDir Directories="@(TestPath)"/>
-		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="=== Processing Finished" />
-	</Target>
-
-	<Target Name="Replace" AfterTargets="MinVer" Condition="@(ReplacerFiles->Count()) != 0 and '$(Version)' != '1.0.0' ">
-		<ItemGroup>
-			<ReplacedFiles Include="@(ReplacerFiles->Replace('_pre',''))">
-				<Orig>%(ReplacerFiles.Identity)</Orig>
-				<Ver>$(Version)</Ver>
-			</ReplacedFiles>
-		</ItemGroup>
-		<Message Importance="high" Text="Files to replace Version: %(ReplacedFiles.Orig) => %(ReplacedFiles.Identity)" />
-		<WriteLinesToFile
-				File="%(ReplacedFiles.Identity)"
-				Lines="$([System.IO.File]::ReadAllText(%(ReplacedFiles.Orig)).Replace('0.0.1-replace.me','%(ReplacedFiles.Ver)'))"
-				Overwrite="true"
-				Encoding="Unicode"/>
-	</Target>
+	<Import Project="common\GeneralInfoMsg.targets" Condition="Exists('common\GeneralInfoMsg.targets')"/>
+	<Import Project="common\CustomSdkPackTask.targets" Condition="Exists('common\CustomSdkPackTask.targets')"/>
+	<Import Project="common\Replace.targets" Condition="Exists('common\Replace.targets')"/>
 
 </Project>
