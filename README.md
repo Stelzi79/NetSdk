@@ -1,8 +1,8 @@
 # NetSdk
 
 [![.github/workflows/ci.yml](https://github.com/Stelzi79/NetSdk/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/Stelzi79/NetSdk/actions/workflows/ci.yml)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Stelzi79/NetSdk?sort=semver)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Stelzi79/NetSdk?label=ci-build)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Stelzi79/NetSdk?sort=semver)](https://github.com/Stelzi79/NetSdk/releases)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Stelzi79/NetSdk?label=ci-build)](https://github.com/Stelzi79/NetSdk/releases)
 
 ## NuGet Packages
 
