@@ -1,7 +1,7 @@
 on:
   push:
-    tags: 
-      - '*'
+    tags:
+      - "*"
     branches:
       - develop
 jobs:
@@ -20,7 +20,7 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 6.0.100-rc.2.21505.57
+          dotnet-version: 6.0.100
       - name: run minver
         id: version
         uses: stelzi79/action-minver@3.0.0
@@ -65,7 +65,7 @@ jobs:
             ${{ toJSON(github.event.commits) }}
             ${{ toJSON(steps.Pack.outputs) }}
           files: |
-           .vs/bin/Stelzi79.NetSdk**/Release/**.nupkg
+            .vs/bin/Stelzi79.NetSdk**/Release/**.nupkg
           prerelease: true
       - name: Publish the package to GPR
         run: dotnet nuget push .vs/bin/**/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/Stelzi79/index.json --skip-duplicate

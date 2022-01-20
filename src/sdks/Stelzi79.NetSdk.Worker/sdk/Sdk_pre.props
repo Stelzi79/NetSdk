@@ -1,56 +1,29 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
 	<PropertyGroup>
-		<BaseBuildDir>$(SolutionDir)</BaseBuildDir>
-		<BaseBuildDir Condition=" '$(BaseBuildDir)' == '' ">$(ProjectDir)..\</BaseBuildDir>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<LocalPackageSource>$(BaseBuildDir)..\.nupkg</LocalPackageSource>
-		<BaseOutputPath>$(BaseBuildDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
-		<BaseIntermediateOutputPath>$(BaseBuildDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
-	</PropertyGroup>
-
-	<Import Sdk="Microsoft.NET.Sdk.Worker" Project="Sdk.props"/>
-
-	<PropertyGroup>
 		<SdkVersion>0.0.1-replace.me</SdkVersion>
 		<SdkRootPath>$(NuGetPackageRoot)Stelzi79.NetSdk.Worker\$(SdkVersion)\sdk\</SdkRootPath>
-		<TaskLogLevel>none</TaskLogLevel>
-		<TargetFramework>net60</TargetFramework>
-		<LangVersion>10</LangVersion>
-		<Nullable>enable</Nullable>
-		<MinVerVerbosity>normal</MinVerVerbosity>
-		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
-		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+		<Common>common\</Common>
+		<BaseDirectories>$(Common)BaseDirectories.props</BaseDirectories>
+		<PackageRefs>$(Common)PackageRefs.props</PackageRefs>
+		<GenFolder>$(Common)GenFolder.props</GenFolder>
+		<DefaultPropertyGroup>$(Common)DefaultPropertyGroup.props</DefaultPropertyGroup>
+		<GeneralInfoMsg>$(Common)GeneralInfoMsg.targets</GeneralInfoMsg>
+		<CustomSdkPackTask>$(Common)CustomSdkPackTask.targets</CustomSdkPackTask>
+		<Replace>$(Common)Replace.targets</Replace>
 	</PropertyGroup>
-	
+
+	<Import Project="$(BaseDirectories)" Condition="Exists('$(BaseDirectories)')"/>
+	<Import Sdk="Microsoft.NET.Sdk.Worker" Project="Sdk.props"/>
+
+	<Import Project="$(DefaultPropertyGroup)" Condition="Exists('$(DefaultPropertyGroup)')"/>
+
+	<Import Project="$(PackageRefs)" Condition="Exists('$(PackageRefs)')"/>
+
 	<ItemGroup>
-		<PackageReference Include="MinVer" Version="2.5.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Roslynator.Analyzers" Version="3.2.2">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.1.1">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.2.2">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Ardalis.GuardClauses" Version="3.2.0" />
+		<ReplacerFiles Include="**\*_pre*"/>
 	</ItemGroup>
-	
-	<ItemGroup>
-    <ReplacerFiles Include="**\*_pre*" />
-  </ItemGroup>
+
+	<Import Project="$(GenFolder)" Condition="Exists('$(GenFolder)')"/>
 
 </Project>

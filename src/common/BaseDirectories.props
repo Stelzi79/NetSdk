@@ -1,0 +1,14 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<BaseBuildDir>$(SolutionDir)</BaseBuildDir>
+		<BaseBuildDir Condition=" '$(BaseBuildDir)' == '' ">$(ProjectDir)..\</BaseBuildDir>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<LocalPackageSource>$(BaseBuildDir)..\.nupkg</LocalPackageSource>
+		<BaseOutputPath>$(BaseBuildDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
+		<BaseIntermediateOutputPath>$(BaseBuildDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+	</PropertyGroup>
+	
+</Project>

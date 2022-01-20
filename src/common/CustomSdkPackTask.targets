@@ -1,0 +1,27 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<!-- Condition of Checking of Version 1.0.0 is needed because this pack command gets triggered twice! -->
+	<Target Name="CustomSdkPackTask" Condition=" '$(Configuration)' == 'Debug' and  '$(Version)' != '1.0.0' and Exists('$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg') " AfterTargets="Pack">
+
+		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="=== Custom Package Processing Started" />
+		<ConvertToAbsolutePath Paths="$(LocalPackageSource)">
+      <Output TaskParameter="AbsolutePaths" PropertyName="LocalPackageSourceAbs"/>
+    </ConvertToAbsolutePath>
+		<ConvertToAbsolutePath Paths="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg">
+      <Output TaskParameter="AbsolutePaths" PropertyName="NupkgPathAbs"/>
+    </ConvertToAbsolutePath>
+		<ItemGroup>
+			<TestPath Include="$(LocalCachePlace)\$(Version)"/>
+			<ToDeletePackage Include="$(LocalPackageSource)\$(PackageId)\$(PackageVersion)" />
+		</ItemGroup>
+
+		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="Processing the Package: '$(NupkgPathAbs)'"/>
+		<Message Condition="'$(TaskLogLevel)' != 'none'"  Importance="high" Text="==== 1) deleting (@(ToDeletePackage))..." />
+		<Exec Condition="Exists('@(ToDeletePackage)')" Command="dotnet nuget delete $(PackageId) $(Version) -s LocalPackageSource --non-interactive" IgnoreExitCode="true"/>
+		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="==== 2) adding to LocalPackageSource ..." />
+		<Exec Command="dotnet nuget push &quot;$(NupkgPathAbs)&quot; -s $(LocalPackageSourceAbs) --no-service-endpoint" IgnoreExitCode="true"/>
+		<RemoveDir Directories="@(TestPath)"/>
+		<Message Condition="'$(TaskLogLevel)' != 'none'" Importance="high" Text="=== Processing Finished" />
+	</Target>
+
+</Project>

@@ -1,6 +1,5 @@
 ﻿<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
-		<SdkVersion>0.3.0</SdkVersion>
 		<TargetFramework>net60</TargetFramework>
 		<LangVersion>10</LangVersion>
 		<Nullable>enable</Nullable>
@@ -8,20 +7,19 @@
 		<BaseOutputPath>$(SolutionDir)..\.vs\bin\$(MSBuildProjectName)</BaseOutputPath>
 		<BaseIntermediateOutputPath>$(SolutionDir)..\.vs\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
 		<TaskLogLevel>none</TaskLogLevel>
+
 		<MinVerVerbosity>normal</MinVerVerbosity>
 		<MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
+		<MinVerAutoIncrement>minor</MinVerAutoIncrement>
+
 		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
 		<NoWarn>$(NoWarn);NU5128;NU5104</NoWarn>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="MinVer" Version="2.5.0"></PackageReference>
-		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354"></PackageReference>
-		<PackageReference Include="Roslynator.Analyzers" Version="3.2.2"></PackageReference>
-		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.1.1"></PackageReference>
-		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.2.2"></PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
-    <ReplacerFiles Include="**\*_pre*" />
-  </ItemGroup>
+		<ReplacerFiles Include="**\*_pre*" />
+	</ItemGroup>
 </Project>
