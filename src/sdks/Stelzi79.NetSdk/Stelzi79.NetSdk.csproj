@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<Id>Stelzi79.NetSdk</Id>
-		<Description>Some common dependencies packed into an MsBuild SDK dependency.</Description>
+		<Description>Some common dependencies for a general NetSdk packed into an MsBuild SDK dependency.</Description>
 	</PropertyGroup>
 
 	<Import Project="..\..\common\SdkCsProj.props" Condition="Exists('..\..\common\SdkCsProj.props')"/>

@@ -1,24 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
-		<Authors>Stelzi79</Authors>
 		<Id>Stelzi79.NetSdk.Web</Id>
-		<PackageVersion>$(Version)</PackageVersion>
-		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/Stelzi79/NetSdk</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/Stelzi79/NetSdk</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<Description>Some common dependencies packed into an MsBuild SDK dependency.</Description>
-		<Copyright>Copyright 2020</Copyright>
-		<PackageTags>csharp msbuild</PackageTags>
-		<NoBuild>true</NoBuild>
-		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<Description>Some common dependencies for a general NetSdk.Web packed into an MsBuild SDK dependency.</Description>
 	</PropertyGroup>
-	<PropertyGroup>
-		<LocalCachePlace>$(USERPROFILE)\.nuget\packages\$(Id)</LocalCachePlace>
-	</PropertyGroup>
-	<ItemGroup>
-		<None Include="sdk\**" Pack="true" PackagePath=" \sdk" Exclude="**\*_pre*"/><!-- <Content Include="sdk/**" CopyToOutputDirectory="Always"/> -->
-	</ItemGroup>
+
+	<Import Project="..\..\common\SdkCsProj.props" Condition="Exists('..\..\common\SdkCsProj.props')"/>
+
 </Project>
