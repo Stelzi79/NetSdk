@@ -64,7 +64,7 @@ jobs:
 
     - run: |
        cd src
-       dotnet pack
+       dotnet build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
