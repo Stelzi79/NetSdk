@@ -9,7 +9,7 @@ updates:
     directory: "src/" # Location of package manifests
     schedule:
       interval: "daily"
-  - package-ecosystem: "composer"
+  - package-ecosystem: "github-actions"
     # Files stored in repository root
     directory: "/"
     schedule:
