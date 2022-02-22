@@ -2,7 +2,9 @@
 
 	<PropertyGroup>
 		<SdkVersion>0.0.1-replace.me</SdkVersion>
-		<SdkRootPath>$(NuGetPackageRoot)Stelzi79.NetSdk\$(SdkVersion)\sdk\</SdkRootPath>
+		<SdkType>NetSdk</SdkType>
+		<SdkInclude>Sdk</SdkInclude>
+		<SdkRootPath>$(NuGetPackageRoot)Stelzi79.$(SdkType)\$(SdkVersion)\sdk\</SdkRootPath>
 		<Common>common\</Common>
 		<BaseDirectories>$(Common)BaseDirectories.props</BaseDirectories>
 		<PackageRefs>$(Common)PackageRefs.props</PackageRefs>
@@ -14,7 +16,8 @@
 	</PropertyGroup>
 
 	<Import Project="$(BaseDirectories)" Condition="Exists('$(BaseDirectories)')"/>
-	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props"/>
+
+	<Import Sdk="Microsoft.NET.$(SdkInclude)" Project="Sdk.props"/>
 
 	<Import Project="$(DefaultPropertyGroup)" Condition="Exists('$(DefaultPropertyGroup)')"/>
 

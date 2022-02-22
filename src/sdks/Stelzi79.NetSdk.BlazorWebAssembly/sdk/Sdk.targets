@@ -1,6 +1,6 @@
 ﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-	<Import Sdk="Microsoft.NET.Sdk.BlazorWebAssembly" Project="Sdk.targets"/>
+	<Import Sdk="Microsoft.NET.Sdk.$(SdkType)" Project="Sdk.targets"/>
 	
 	<Import Project="$(GeneralInfoMsg)" Condition="Exists('$(GeneralInfoMsg)')"/>
 	<Import Project="$(CustomSdkPackTask)" Condition="Exists('$(CustomSdkPackTask)')"/>
