@@ -8,6 +8,10 @@
 		<Message Importance="high" Text="Local Packages are resolved from the source: $(LocalPackageSource)"/>
 	</Target>
 
+	<Target Name="OutputVersion" BeforeTargets="MinVer">
+		<Message Importance="high" Text="This is Version '$(SdkVersion)' of $(SdkType)!"/>
+	</Target>
+
 	<!-- <Target Name="PreCustomPackTask" BeforeTargets="CustomSdkPackTask, Build, Pack">
 		<Message Importance="high" Text="Cleaning Task ..."/>
 		<CallTarget Targets="clean"/>
