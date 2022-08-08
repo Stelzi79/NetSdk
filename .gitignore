@@ -335,3 +335,4 @@ ASALocalRun/
 template-tests/
 **/Sdk.props
 **/template.json
+**/global.json
