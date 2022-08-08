@@ -16,7 +16,7 @@
 		<NoWarn>$(NoWarn);NU5128;NU5104</NoWarn>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="MinVer" Version="2.5.0"></PackageReference>
+		<PackageReference Include="MinVer" Version="4.1.0"></PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
