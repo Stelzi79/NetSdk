@@ -23,7 +23,7 @@
 		<!-- <GeneratePackageOnBuild>True</GeneratePackageOnBuild> -->
 	</PropertyGroup>
 	<ItemGroup>
-		<Content Include="NetSdkProject\**\*;NetSdkRepoStructure\**\*" Exclude="**\bin\**;**\obj\**;**\*_pre*" />
+		<Content Include="NetSdkProject\**\*;NetSdk*Project\**\*;NetSdkRepoStructure\**\*" Exclude="**\bin\**;**\obj\**;**\*_pre*" />
 		<Compile Remove="**\*"/>
 	</ItemGroup>
 </Project>
