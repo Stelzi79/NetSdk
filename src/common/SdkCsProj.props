@@ -2,6 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<Authors>Stelzi79</Authors>
 		<PackageVersion>$(Version)</PackageVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
