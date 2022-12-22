@@ -1,4 +1,6 @@
 ﻿<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-	
+	<Import Project="$(GeneralInfoMsg)" Condition="Exists('$(GeneralInfoMsg)')"/>
+	<Import Project="$(CustomSdkPackTask)" Condition="Exists('$(CustomSdkPackTask)')"/>
+	<Import Project="$(Replace)" Condition="Exists('$(Replace)')"/>	
 </Project>

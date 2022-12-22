@@ -1,4 +1,29 @@
 ﻿<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<PropertyGroup>
+		<Common>_CommonMsBuildFiles/</Common>
+		<Targets>$(Common)Targets/</Targets>
+		<Props>$(Common)Props/</Props>
+
+		<SdkCsProj>$(Props)SdkCsProj.props</SdkCsProj>
+		<BaseDirectories>$(Props)BaseDirectories.props</BaseDirectories>
+		<PackageRefs>$(Props)PackageRefs.props</PackageRefs>
+		<GenFolder>$(Props)GenFolder.props</GenFolder>
+		<DefaultPropertyGroup>$(Props)DefaultPropertyGroup.props</DefaultPropertyGroup>
+
+		<GeneralInfoMsg>$(Targets)GeneralInfoMsg.targets</GeneralInfoMsg>
+		<CustomSdkPackTask>$(Targets)CustomSdkPackTask.targets</CustomSdkPackTask>
+		<Replace>$(Targets)Replace.targets</Replace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Import Project="$(SdkCsProj)" Condition="Exists('$(SdkCsProj)')"/>
+		<Import Project="$(BaseDirectories)" Condition="Exists('$(BaseDirectories)')"/>
+		<Import Project="$(PackageRefs)" Condition="Exists('$(PackageRefs)')"/>
+		<Import Project="$(GenFolder)" Condition="Exists('$(GenFolder)')"/>
+		<Import Project="$(DefaultPropertyGroup)" Condition="Exists('$(DefaultPropertyGroup)')"/>
+	</ItemGroup>
+
 	<ItemGroup>
 		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
 			<_Parameter1>$(AssemblyName).Tests</_Parameter1>

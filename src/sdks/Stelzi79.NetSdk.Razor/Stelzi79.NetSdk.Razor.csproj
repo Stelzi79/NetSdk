@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<Id>Stelzi79.NetSdk.Razor</Id>
-		<Description>Some common dependencies for a general NetSdk.Razor packed into an MsBuild SDK dependency.</Description>
-	</PropertyGroup>
-
-	<Import Project="..\..\common\SdkCsProj.props" Condition="Exists('..\..\common\SdkCsProj.props')"/>
-
-</Project>
