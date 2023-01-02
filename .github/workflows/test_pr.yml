@@ -32,7 +32,7 @@ jobs:
           dotnet-version: 6.0.100
       - name: run minver
         id: version
-        uses: stelzi79/action-minver@3.0.0
+        uses: stelzi79/action-minver@3.0.1
         with:
           auto-increment: minor
           default-pre-release-phase: preview
