@@ -19,5 +19,6 @@
 		"titleBar.inactiveForeground": "#15202b99",
 		"commandCenter.border": "#15202b99"
 	},
-	"peacock.color": "#e9f4e6"
+	"peacock.color": "#e9f4e6",
+	"dotnet.defaultSolution": "disable"
 }
