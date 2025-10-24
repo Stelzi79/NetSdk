@@ -17,7 +17,16 @@
 		"titleBar.activeForeground": "#15202b",
 		"titleBar.inactiveBackground": "#e9f4e699",
 		"titleBar.inactiveForeground": "#15202b99",
-		"commandCenter.border": "#15202b99"
+		"commandCenter.border": "#15202b99",
+		"editorGroup.border": "#ffffff",
+		"panel.border": "#ffffff",
+		"sideBar.border": "#ffffff",
+		"statusBar.border": "#e9f4e6",
+		"statusBar.debuggingBackground": "#f1e6f4",
+		"statusBar.debuggingBorder": "#f1e6f4",
+		"statusBar.debuggingForeground": "#15202b",
+		"tab.activeBorder": "#ffffff",
+		"titleBar.border": "#e9f4e6"
 	},
 	"peacock.color": "#e9f4e6",
 	"dotnet.defaultSolution": "disable"
